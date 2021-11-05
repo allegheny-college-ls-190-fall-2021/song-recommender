@@ -41,7 +41,7 @@ class Listener(tweepy.Stream): # <-- "Inheritance"
         self.determine_genres(status)
 
     def determine_genres(self, status):
-        prediction = nlp(status.text)
+        prediction = nlp(status.text.lower())
         predictions = prediction.cats
         predictions = [predict for predict in predictions if predictions[predict] > .8]
         try:
